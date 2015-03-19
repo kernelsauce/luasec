@@ -1,0 +1,17 @@
+version: 1.0.{build}
+os: Windows Server 2012 R2
+shallow_clone: true
+install:
+- appveyor DownloadFile http://slproweb.com/download/Win32OpenSSL-1_0_2.exe
+- Win32OpenSSL-1_0_2.exe /silent /verysilent /sp- /suppressmsgboxes
+- appveyor DownloadFile http://keplerproject.github.io/luarocks/releases/luarocks-2.2.1-win32.zip
+- 7z x luarocks-2.2.1-win32.zip
+- cd luarocks-2.2.1-win32
+- install.bat /L /Q
+- ps: $env:Path +=";C:\Program Files (x86)\LuaRocks\2.2"
+- set LUA_PATH="C:\Program Files (x86)\LuaRocks\2.2\lua\?.lua;C:\Program Files (x86)\LuaRocks\2.2\lua\?\init.lua;C:\Program Files (x86)\LuaRocks\systree\share\lua\5.1\?.lua;C:\Program Files (x86)\LuaRocks\systree\share\lua\5.1\?\init.lua"
+- set LUA_CPATH="C:\Program Files (x86)\LuaRocks\systree\lib\lua\5.1\?.dll"
+- cd ..
+build_script:
+- '"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86'
+- luarocks make luasec-0.5-3.rockspec OPENSSL_INCDIR=c:\OpenSSL-Win32\include OPENSSL_LIBDIR=C:\OpenSSL-Win32\lib
