@@ -1,5 +1,7 @@
-LuaSec 0.5
+LuaSec 0.5 modified by John Abrahamsen
 ==========
+
+Forked to support Windows x86/x64 builds and Appveyor CI.
 
 LuaSec depends  on OpenSSL, and  integrates with LuaSocket to  make it
 easy to add secure connections to any Lua applications or scripts.
