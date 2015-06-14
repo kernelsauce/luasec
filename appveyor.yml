@@ -36,6 +36,7 @@ install:
   - call luarocks install luasocket
   - appveyor DownloadFile https://www.openssl.org/source/openssl-1.0.2-latest.tar.gz
   - 7z x openssl-1.0.2-latest.tar.gz
+  - 7z x openssl-1.0.2-latest.tar
   - cd openssl-1.0.2-latest
   - perl Configure VC-WIN64A --prefix=C:\Build-OpenSSL-VC-64
   - ms\do_win64a
