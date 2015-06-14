@@ -34,10 +34,10 @@ install:
   - call install.bat /TREE %TURBO_ROOT%\rocks\ /P %TURBO_ROOT%\luarocks\ /INC %TURBO_ROOT%\src\luajit-2.0\src /LIB %TURBO_ROOT%\src\luajit-2.0\src /LUA %TURBO_ROOT% /Q
   # Install Lua deps.
   - call luarocks install luasocket
-  - appveyor DownloadFile https://www.openssl.org/source/openssl-1.0.2-latest.tar.gz
-  - 7z x openssl-1.0.2-latest.tar.gz
-  - 7z x openssl-1.0.2-latest.tar
-  - cd openssl-1.0.2-latest
+  - appveyor DownloadFile https://www.openssl.org/source/openssl-1.0.2c.tar.gz
+  - 7z x openssl-1.0.2c.tar.gz
+  - 7z x openssl-1.0.2c.tar
+  - cd openssl-1.0.2c
   - perl Configure VC-WIN64A --prefix=C:\Build-OpenSSL-VC-64
   - ms\do_win64a
   - nmake -f ms\nt.mak
