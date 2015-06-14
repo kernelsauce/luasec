@@ -45,4 +45,5 @@ install:
 
 build_script:
 - '"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x64'
+- cd %APPVEYOR_BUILD_FOLDER%
 - luarocks make luasec-0.5-3.rockspec OPENSSL_INCDIR=C:\Build-OpenSSL-VC-64\include OPENSSL_LIBDIR=C:\Build-OpenSSL-VC-64\lib
